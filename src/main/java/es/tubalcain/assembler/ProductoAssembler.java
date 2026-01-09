@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class ProductoAssembler {
 
-    public ProductoDTO toDto(Producto producto) {
+    public ProductoDTO toDTO(Producto producto) {
         if (producto == null) return null;
 
         ProductoDTO dto = new ProductoDTO();
