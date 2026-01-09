@@ -3,6 +3,7 @@ package es.tubalcain.domain;
 import jakarta.persistence.*;
 
 import java.sql.Date;
+import java.util.List;
 
 @Entity
 @Table(name="pedido")
@@ -27,7 +28,7 @@ public class Pedido {
     private double total;
 
     @Column(name="productos")
-    private Producto[] productos;
+    private List<Producto> productos;
 
     public Pedido(){
         fecha = new Date(System.currentTimeMillis()); //Usa la fecha actual por defecto
@@ -36,10 +37,12 @@ public class Pedido {
         total = 0;
     }
 
-    public Pedido(Date fecha, String cliente, Estado estado, Producto[] productos) {
+    public Pedido(Date fecha, String cliente, Estado estado, List<Producto> productos) {
         this.fecha = fecha;
         this.cliente = cliente;
         this.estado = estado;
-        this.productos = productos;
+        for(Producto p: productos){
+            this.productos.add(p);
+        }
     }
 }
