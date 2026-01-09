@@ -11,10 +11,16 @@ import java.util.Optional;
 public interface ProductoSpringRepository extends JpaRepository<Producto,Long> {
     //Buscar por id
     Optional<Producto> findbyId(Long id);
+
     //Buscar por nombre
     Optional<Producto> findbyNombre(String nombre);
 
+    //Eliminar por id
+    void deleteById(Long id);
+
+    //Busca por nombres que contengan el parámetro escrito
     List<Producto> findByNombreContaining(String nombre);
 
+    //Busca todos los productos en la BBDD
     Page<Producto> findAll(Pageable pageable);
 }
