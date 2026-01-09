@@ -55,7 +55,5 @@ public class ProductoService {
         productoRepository.deleteById(id);
     }
 
-    //Añadir un producto a pedido
 
-    //Eliminar un producto de pedido
 }

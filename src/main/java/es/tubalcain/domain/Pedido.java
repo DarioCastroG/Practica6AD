@@ -20,6 +20,9 @@ public class Pedido {
 
     @Column(name="estado")
     private Estado estado;
+
+
+
     private enum Estado{
         EN_ALMACEN,EN_CAMINO, ENTREGADO, CANCELADO, OBSTRUIDO
     }
@@ -27,6 +30,9 @@ public class Pedido {
     @Column(name="total")
     private double total;
 
+    @ManyToMany
+    @JoinTable(name= "pedido_producto", joinColumns=@JoinColumn(name="pedido_id"),
+            inverseJoinColumns = @JoinColumn(name="producto_id") )
     @Column(name="productos")
     private List<Producto> productos;
 
@@ -44,5 +50,44 @@ public class Pedido {
         for(Producto p: productos){
             this.productos.add(p);
         }
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+
+    public String getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(String cliente) {
+        this.cliente = cliente;
+    }
+
+    public Estado getEstado() {
+        return estado;
+    }
+
+    public void setEstado(Estado estado) {
+        this.estado = estado;
+    }
+
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
     }
 }

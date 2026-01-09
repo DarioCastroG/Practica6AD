@@ -4,33 +4,32 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Table(name="producto")
 public class Producto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Getter @Setter
     private Long id;
 
     @Column(name="nombre")
-    @Getter @Setter
     private String nombre;
 
     @Column(name="descripcion")
-    @Getter @Setter
     private String descripcion;
 
     @Column(name="precio")
-    @Getter @Setter
     private double precio;
 
     @Column(name="stock")
-    @Getter @Setter
     private int stock;
 
     @Column(name="categoria")
-    @Getter @Setter
     private String categoria;
+
+    @ManyToMany(mappedBy = "productos")
+    private List<Pedido> pedidos;
 
     public Producto() {
         this.nombre = null;
@@ -48,5 +47,51 @@ public class Producto {
         this.categoria = categoria;
     }
 
+    public String getCategoria() {
+        return categoria;
+    }
 
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
 }
