@@ -26,7 +26,11 @@ public class ProductoService {
     }
 
     //Crear un nuevo producto
+    public Producto createProducto(Producto producto) {
+        productoRepository.findbyId(producto.getId());
 
+        return productoRepository.save(producto);
+    }
     //Modificar un producto existente
 
     //Eliminar un producto
