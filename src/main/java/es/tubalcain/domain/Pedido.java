@@ -1,5 +1,6 @@
 package es.tubalcain.domain;
 
+import es.tubalcain.dto.PedidoDTO;
 import jakarta.persistence.*;
 
 import java.sql.Date;
@@ -21,10 +22,8 @@ public class Pedido {
     @Column(name="estado")
     private Estado estado;
 
-
-
-    private enum Estado{
-        EN_ALMACEN,EN_CAMINO, ENTREGADO, CANCELADO, OBSTRUIDO
+    public enum Estado{
+        EN_ALMACEN, EN_CAMINO, ENTREGADO, CANCELADO, OBSTRUIDO
     }
 
     @Column(name="total")

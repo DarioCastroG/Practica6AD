@@ -10,7 +10,7 @@ public class PedidoDTO {
     private Long id;
     private Date fecha;
     private String cliente;
-    private Estado pedido;
+    private Pedido.Estado estado;
     private double total;
     private List<Producto> productos;
     public Long getId() {
@@ -20,7 +20,9 @@ public class PedidoDTO {
     public void setId(Long id) {
         this.id = id;
     }
-
+    public void setFecha(Date fecha){
+        this.fecha = fecha;
+    }
     public Date getFecha() {
         return fecha;
     }
@@ -33,12 +35,12 @@ public class PedidoDTO {
         this.cliente = cliente;
     }
 
-    public Estado getPedido() {
-        return pedido;
+    public Pedido.Estado getEstado() {
+        return estado;
     }
 
-    public void setPedido(Estado pedido) {
-        this.pedido = pedido;
+    public void setEstado(Pedido.Estado estado) {
+        this.estado = estado;
     }
 
     public double getTotal() {
