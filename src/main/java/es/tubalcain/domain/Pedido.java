@@ -22,6 +22,10 @@ public class Pedido {
     @Column(name="estado")
     private Estado estado;
 
+    public void setProductos(List<Producto> productos) {
+        this.productos = productos;
+    }
+
     public enum Estado{
         EN_ALMACEN, EN_CAMINO, ENTREGADO, CANCELADO, OBSTRUIDO
     }
@@ -88,5 +92,9 @@ public class Pedido {
 
     public void setTotal(double total) {
         this.total = total;
+    }
+
+    public List<Producto> getProductos() {
+        return productos;
     }
 }
