@@ -24,13 +24,13 @@ public class PedidoController {
 
     //Añadir un producto a un pedido
     @PostMapping("/{id}/producto/{idProducto}")
-    public PedidoDTO addProducto(@PathVariable Long id, @RequestBody ProductoDTO productoDTO){
+    public PedidoDTO addProducto(@PathVariable Long id, @PathVariable Long idProducto){
 
     }
 
     //Eliminar un producto de un pedido
     @DeleteMapping("/{id}/producto/{idProducto}")
-    public void deleteProductoFromPedido(){
+    public void deleteProductoFromPedido(@PathVariable Long id, @PathVariable Long idProducto){
 
     }
 }
