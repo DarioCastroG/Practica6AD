@@ -2,6 +2,7 @@ package es.tubalcain.controller;
 
 import es.tubalcain.assembler.PedidoAssembler;
 import es.tubalcain.assembler.ProductoAssembler;
+import es.tubalcain.domain.Pedido;
 import es.tubalcain.dto.PedidoDTO;
 import es.tubalcain.dto.ProductoDTO;
 import es.tubalcain.service.PedidoService;
@@ -25,12 +26,13 @@ public class PedidoController {
     //Añadir un producto a un pedido
     @PostMapping("/{id}/producto/{idProducto}")
     public PedidoDTO addProducto(@PathVariable Long id, @PathVariable Long idProducto){
-
+        Pedido pedidoExistente = pedidoService.addProducto(id,idProducto);
+        return pedidoAssembler.toDTO(pedidoExistente);
     }
 
     //Eliminar un producto de un pedido
     @DeleteMapping("/{id}/producto/{idProducto}")
     public void deleteProductoFromPedido(@PathVariable Long id, @PathVariable Long idProducto){
-
+        pedidoService.removeProducto(id, idProducto);
     }
 }
